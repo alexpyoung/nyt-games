@@ -1,0 +1,12 @@
+name: CI
+on: push
+jobs:
+  pylint:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/setup-python@v1
+      with:
+        python-version: 3.x
+    - run: pip install --upgrade pylint
+    - uses: actions/checkout@v2
+    - run: pylint *.py
